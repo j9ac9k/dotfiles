@@ -1,0 +1,40 @@
+# zmodload zsh/zprof # top of your .zshrc file
+
+export FZF_BASE=$(brew --prefix)/opt/fzf/install
+
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+# source antidote
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
+
+# command to generate ~/.zsh_plugins.zsh
+# antidote bundle <~/.zsh_plugins.txt >~/.zsh_plugins.zsh
+# source ~/.zsh_plugins.zsh
+
+autoload -Uz promptinit && promptinit && prompt pure
+
+# fzf goodness
+bindkey '^ ' autosuggest-accept
+bindkey "ç" fzf-cd-widget
+
+# subscring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# preserve hsitory
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt incappendhistory
+setopt HIST_IGNORE_ALL_DUPS
+
+archey --logo-style RETRO
+
+# zprof

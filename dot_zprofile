@@ -1,0 +1,10 @@
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$(brew --prefix)/opt/llvm/bin:$PATH"
+eval "$(pyenv init --path --no-rehash)"
+
+export EDITOR="subl"
+export CLICOLOR=1
+
+export PATH="$PATH:/Users/ogi/.local/bin"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
